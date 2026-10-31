@@ -9,13 +9,17 @@ var LAUNCHER_ROWS = [
         tiles: [
             { name: 'YouTube',     id: '9Ur5IzDKqV.TizenYouTube',             color: '#cc0000' },
             { name: 'Prime Video', id: 'evKhCgZelL.AmazonIgnitionLauncher2',  color: '#00a8e1' },
+            { name: 'Viaplay',     id: '11111300404',                         color: '#e5007e' },
+            { name: 'SVT Play',    id: '3201612011287',                       color: '#1f7a3a' },
             { name: 'Streaming',   url: 'https://bingebang.st/',                                   color: '#7b2ff7' }
         ]
     },
     {
-        title: 'Music',
+        // Max 5 tiles per row fit on a 1920px screen.
+        title: 'Music & Live',
         tiles: [
-            { name: 'Spotify',     id: 'rJeHak5zRg.Spotify',                  color: '#1db954' }
+            { name: 'Spotify',     id: 'rJeHak5zRg.Spotify',                  color: '#1db954' },
+            { name: 'Twitch',      id: '3202203026841',                       color: '#9146ff' }
         ]
     }
 ];
