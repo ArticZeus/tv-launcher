@@ -8,6 +8,10 @@
                   'August', 'September', 'October', 'November', 'December'];
 
     var hasTizen = typeof tizen !== 'undefined';
+    // TizenBrew serves modules from 127.0.0.1:8081 without the tizen object;
+    // there we launch apps through the TV's own REST API instead.
+    var onTv = location.hostname === '127.0.0.1';
+    var TV_API = 'http://127.0.0.1:8001/api/v2/applications/';
     var grid = [];        // grid[row][col] -> tile element
     var pos = { row: 0, col: 0 };
     var toastTimer = null;
@@ -79,13 +83,26 @@
         grid[row][col].className = 'tile focused';
     }
 
+    // Plain POST with no custom headers is a "simple" CORS request: the TV
+    // runs the app even though this page isn't allowed to read the reply.
+    function launchViaRest(appId, appName) {
+        showToast('Opening ' + appName + '...');
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', TV_API + encodeURIComponent(appId), true);
+        xhr.send();
+    }
+
     function openUrl(url, appName) {
         if (!url) {
             showToast('No URL set for ' + appName + ' yet (edit js/apps.js)');
             return;
         }
         if (!hasTizen) {
-            showToast('(browser preview) would open ' + url);
+            if (onTv) {
+                location.href = url;
+            } else {
+                showToast('(browser preview) would open ' + url);
+            }
             return;
         }
         try {
@@ -107,7 +124,11 @@
             return;
         }
         if (!hasTizen) {
-            showToast('(browser preview) would launch ' + appId);
+            if (onTv) {
+                launchViaRest(appId, appName);
+            } else {
+                showToast('(browser preview) would launch ' + appId);
+            }
             return;
         }
         try {
