@@ -1,0 +1,9 @@
+{
+  "name": "tv-launcher",
+  "version": "1.0.0",
+  "description": "Clean homescreen for Samsung Tizen TVs, as a TizenBrew app module.",
+  "packageType": "app",
+  "appName": "Home",
+  "appPath": "index.html",
+  "keys": []
+}

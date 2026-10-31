@@ -1,0 +1,96 @@
+/* Plain CSS for old Tizen WebKit (2015-2017 TVs): no variables, no grid, no gap. */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    background: #0e1116;
+    color: #e8eaed;
+    font-family: "SamsungOne", "Tizen Sans", Arial, sans-serif;
+}
+
+#header {
+    position: absolute;
+    top: 60px;
+    left: 120px;
+    right: 120px;
+    height: 120px;
+}
+
+#clock {
+    font-size: 96px;
+    font-weight: 300;
+    line-height: 1;
+}
+
+#date {
+    margin-top: 10px;
+    font-size: 32px;
+    color: #9aa0a6;
+}
+
+#rows {
+    position: absolute;
+    top: 260px;
+    left: 120px;
+    right: 120px;
+}
+
+.row {
+    margin-bottom: 50px;
+    white-space: nowrap;
+}
+
+.row-title {
+    font-size: 30px;
+    color: #9aa0a6;
+    margin: 0 0 18px 6px;
+}
+
+.tile {
+    display: inline-block;
+    vertical-align: top;
+    width: 300px;
+    height: 170px;
+    margin-right: 30px;
+    border-radius: 14px;
+    position: relative;
+    -webkit-transition: -webkit-transform 0.15s ease-out;
+    transition: transform 0.15s ease-out;
+}
+
+.tile-name {
+    position: absolute;
+    left: 24px;
+    bottom: 20px;
+    font-size: 34px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.tile.focused {
+    -webkit-transform: scale(1.08);
+    transform: scale(1.08);
+    box-shadow: 0 0 0 6px #fff, 0 12px 30px rgba(0, 0, 0, 0.6);
+}
+
+#toast {
+    position: absolute;
+    left: 50%;
+    bottom: 60px;
+    width: 900px;
+    margin-left: -450px;
+    padding: 20px 0;
+    border-radius: 12px;
+    background: #2b2f36;
+    font-size: 28px;
+    text-align: center;
+    opacity: 0;
+    -webkit-transition: opacity 0.2s;
+    transition: opacity 0.2s;
+}
+
+#toast.show {
+    opacity: 1;
+}
