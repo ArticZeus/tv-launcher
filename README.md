@@ -18,7 +18,7 @@ GitHub repo and runs it, so you don't need Tizen Studio or a Samsung certificate
 
 ## 2. Add the launcher to TizenBrew
 1. Open TizenBrew on the TV.
-2. Open the module manager and add a GitHub module: `<your-github-user>/tv-launcher`.
+2. Open the module manager and add a GitHub module: `ArticZeus/tv-launcher`.
 3. Open **Home** from the module list. Optionally set it as the auto-launch module.
 4. Move TizenBrew to the first slot on Samsung's home bar, so your launcher is one press away.
 
